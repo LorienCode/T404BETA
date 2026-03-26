@@ -10,15 +10,15 @@
 .fakeload {
   display: grid;
   grid-template-columns: repeat(100, 5px);
-  gap: 8px;
+  gap: 2px;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
 .square {
-  width: 20px;
-  height: 20px;
+  width: 5px;
+  height: 5px;
   background: #999;
   opacity: 0.3;
 }
