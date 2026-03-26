@@ -1,16 +1,36 @@
-// FAKE LOADED [!]
 const fakeload = document.querySelector(".fakeload");
 const line = 3;
 const column = 50;
 
+const matriz = [];
+
 for (let i = 0; i < line; i++) {
+    matriz[i] = [];
+
     for (let j = 0; j < column; j++) {
         const span = document.createElement("span");
         span.classList.add("square");
-        fakeload.appendChild(span)
+
+        fakeload.appendChild(span);
+        matriz[i][j] = span; // 🔥 guarda referência
     }
 }
 
+let curlColumn = 0;
+
+const interval = setInterval(() => {
+    if (curlColumn >= 15) { 
+        // 35 colunas acesas (70% de 50 ≈ 30% apagadas)
+        clearInterval(interval);
+        return;
+    }
+
+    for (let i = 0; i < line; i++) {
+        matriz[i][curlColumn].style.opacity = "1";
+    }
+
+    curlColumn++;
+}, 100);
 
 
 // MESSAGE

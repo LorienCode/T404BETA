@@ -20,6 +20,7 @@
   height: 5px;
   background: #999;
   opacity: 0.3;
+  transition: .3s;
 }
 
 
