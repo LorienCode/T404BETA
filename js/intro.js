@@ -19,8 +19,8 @@ for (let i = 0; i < line; i++) {
 
 // SHORTS SOUNDS VARIABLES
 const sons = [
-    new Audio("../assets/bip1.wav"),
-    new Audio("../assets/bip2.wav")
+    new Audio("assets/bip1.wav"),
+    new Audio("assets/bip2.wav")
 ]
 
 
