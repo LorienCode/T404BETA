@@ -30,7 +30,7 @@ const interval = setInterval(() => {
     }
 
     curlColumn++;
-}, 100);
+}, 600);
 
 
 // MESSAGE
