@@ -19,8 +19,8 @@ for (let i = 0; i < line; i++) {
 
 // SHORTS SOUNDS VARIABLES
 const sons = [
-    new Audio("../assets/beep1"),
-    new Audio("../assets/beep2")
+    new Audio("../assets/beep1.wav"),
+    new Audio("../assets/beep2.wav")
 ]
 
 
@@ -39,7 +39,7 @@ function animar() {
     // Random [som]
     const som = sons[Math.floor(Math.random() * sons.length)];
     som.currentTime = 0;
-    som.volume = 0.2;
+    som.volume = 1;
     som.play();
 
     curlColumn++;
