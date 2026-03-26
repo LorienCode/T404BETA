@@ -9,11 +9,10 @@
 /* FAKE LOADED ======================= */
 .fakeload {
   display: grid;
-  grid-template-columns: repeat(100, 5px);
+  grid-template-columns: repeat(3, 5px);
   gap: 2px;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .square {
