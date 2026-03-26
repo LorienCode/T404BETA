@@ -19,7 +19,7 @@ for (let i = 0; i < line; i++) {
 let curlColumn = 0;
 
 const interval = setInterval(() => {
-    if (curlColumn >= 15) { 
+    if (curlColumn >= 35) { 
         // 35 colunas acesas (70% de 50 ≈ 30% apagadas)
         clearInterval(interval);
         return;
