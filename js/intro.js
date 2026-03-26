@@ -16,21 +16,43 @@ for (let i = 0; i < line; i++) {
     }
 }
 
+
+// Animação coluna por coluna
 let curlColumn = 0;
 
-const interval = setInterval(() => {
-    if (curlColumn >= 35) { 
-        // 35 colunas acesas (70% de 50 ≈ 30% apagadas)
-        clearInterval(interval);
-        return;
-    }
+function animar() {
+    if (curlColumn >= 35) return; // 35 colunas acesas (80% aprox)
 
+    // Acende a coluna atual
     for (let i = 0; i < line; i++) {
         matriz[i][curlColumn].style.opacity = "1";
     }
 
     curlColumn++;
-}, 600);
+
+    let delay;
+
+    // 🔹 Fases de processamento
+    if (curlColumn < 10) {
+        delay = 100; // início rápido
+    } else if (curlColumn < 25) {
+        delay = 600; // meio travado
+    } else {
+        delay = 600; // final lento
+    }
+
+    // 🔹 Upgrade sinistro: pequenas pausas aleatórias para simular travamento
+    if (curlColumn === 15) delay = 1500; // engasgo grande
+    if (curlColumn === 22) delay = 1200; // outro engasgo menor
+
+    // 🔹 Pequena aleatoriedade para deixar mais natural
+    delay += Math.random() * 200;
+
+    setTimeout(animar, delay);
+}
+
+// Start
+animar();
 
 
 // MESSAGE
