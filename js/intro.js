@@ -1,3 +1,21 @@
+// FAKE LOADED [!]
+const fakeload = document.querySelector(".fakeload");
+const line = 2;
+const column = 100;
+
+for (let i = 0; i < line; i++) {
+    for (let j = 0; j < column; j++) {
+        const span = document.createElement("span");
+        span.classList.add("square");
+        fakeload.appendChild(span)
+    }
+}
+
+
+
+// MESSAGE
+
+/*
 const text = `> Booting system...
 
 > Checking identity...
@@ -29,3 +47,4 @@ function typeEffect() {
 }
 
 typeEffect();
+*/
