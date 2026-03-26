@@ -1,7 +1,7 @@
 // FAKE LOADED [!]
 const fakeload = document.querySelector(".fakeload");
 const line = 2;
-const column = 100;
+const column = 50;
 
 for (let i = 0; i < line; i++) {
     for (let j = 0; j < column; j++) {
