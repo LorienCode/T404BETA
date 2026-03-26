@@ -17,6 +17,13 @@ for (let i = 0; i < line; i++) {
 }
 
 
+// SHORTS SOUNDS VARIABLES
+const sons = [
+    new Audio("assets/bip1.wav"),
+    new Audio("assets/bip2.wav")
+]
+
+
 // Animação coluna por coluna
 let curlColumn = 0;
 
@@ -28,8 +35,14 @@ function animar() {
         matriz[i][curlColumn].style.opacity = "1";
     }
 
-    curlColumn++;
 
+    // Random [som]
+    const som = sons[Math.floor(Math.random() * sons.length)];
+    som.currentTime = 0;
+    som.volume = 0.2;
+    som.play();
+
+    curlColumn++;
     let delay;
 
     // 🔹 Fases de processamento
