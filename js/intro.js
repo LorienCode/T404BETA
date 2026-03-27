@@ -17,13 +17,6 @@ for (let i = 0; i < line; i++) {
 }
 
 
-// SHORTS SOUNDS VARIABLES
-const sons = [
-    new Audio("../assets/beep1.wav"),
-    new Audio("../assets/beep2.wav")
-]
-
-
 // Animação coluna por coluna
 let curlColumn = 0;
 
@@ -33,14 +26,11 @@ function animar() {
     // Acende a coluna atual
     for (let i = 0; i < line; i++) {
         matriz[i][curlColumn].style.opacity = "1";
+
+        if(i >= line){
+            fakeload.style.display = "none"
+        }
     }
-
-
-    // Random [som]
-    const som = sons[Math.floor(Math.random() * sons.length)];
-    som.currentTime = 0;
-    som.volume = 1;
-    som.play();
 
     curlColumn++;
     let delay;
