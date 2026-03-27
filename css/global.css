@@ -14,9 +14,8 @@
   height: 100vh;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .container .backimg {
@@ -26,17 +25,18 @@
 
 /* FAKE LOADED ======================= */
 .fakeload {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-53%);
   display: grid;
   grid-template-columns: repeat(50, 5px);
   gap: 2px;
-  justify-content: center;
-  align-items: center;
 }
 
 .fakeload .square {
   width: 5px;
   height: 5px;
-  background: #FFF;
+  background: #999;
   opacity: 0.3;
   transition: .3s;
 }
