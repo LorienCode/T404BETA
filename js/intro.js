@@ -1,9 +1,14 @@
+/* FAKE LOA (GRID) */
+/* *************** */
+
+
 const fakeload = document.querySelector(".fakeload");
 const line = 3;
 const column = 50;
 
 const matriz = [];
 
+// BUILD GRID
 for (let i = 0; i < line; i++) {
     matriz[i] = [];
 
@@ -17,25 +22,32 @@ for (let i = 0; i < line; i++) {
 }
 
 
-// Animação coluna por coluna
+
+/* FAKE LOAD ANIMATION */
+/* ******************* */
+
 let curlColumn = 0;
 
-function animar() {
-    if (curlColumn >= 35) return; // 35 colunas acesas (80% aprox)
+function animar(callback) {
+    if (curlColumn >= 40) {
+        setTimeout(() => {
+            fakeload.style.display = "none";
+
+            if (callback) callback();
+        }, 300);
+
+        return;
+    }
 
     // Acende a coluna atual
     for (let i = 0; i < line; i++) {
         matriz[i][curlColumn].style.opacity = "1";
-
-        if(i >= line){
-            fakeload.style.display = "none"
-        }
     }
 
     curlColumn++;
     let delay;
 
-    // 🔹 Fases de processamento
+    // 🔹 STEPS LOADs
     if (curlColumn < 10) {
         delay = 100; // início rápido
     } else if (curlColumn < 25) {
@@ -51,45 +63,55 @@ function animar() {
     // 🔹 Pequena aleatoriedade para deixar mais natural
     delay += Math.random() * 200;
 
-    setTimeout(animar, delay);
+    setTimeout(() => animar(callback), delay);
 }
 
-// Start
-animar();
 
 
-// MESSAGE
+/* INTRO (SONG + TERMINAL) */
+/* *********************** */
 
-/*
 const text = `> Booting system...
-
-> Checking identity...
+> checking identity...
 > ERROR 404: IDENTITY NOT FOUND!
 
 > Memory fragments detected.
-
-> You are note supposed to be here.
+> You are not supposed to be here.
 
 ...
 
-> Or are you?
+> or are you?
 
->Type "help" to continue.
+> Type "Help" to continue.
 `;
-
 
 let i = 0;
 const speed = 40;
 const terminal = document.getElementById("terminal");
 
-
 function typeEffect() {
-    if(i < text.length) {
-        terminal.innerHTML += text.charAt(i);
+    if (i < text.length) {
+        terminal.textContent += text.charAt(i);
         i++;
         setTimeout(typeEffect, speed);
     }
 }
 
-typeEffect();
-*/
+function iniciarIntro() {
+    const audio = new Audio("error.mp3");
+
+    audio.play().catch(() => {
+        // fallback caso autoplay falhe
+        typeEffect();
+    });
+
+    audio.onended = () => {
+        typeEffect();
+    };
+}
+
+
+/*     SYSTEM OF START     */
+/* *********************** */
+
+animar(() => { iniciarIntro(); })
